@@ -1,0 +1,72 @@
+{
+  "name": "cowork-plugins",
+  "description": "Anthropic CoWork 官方插件集合 - 包含生产力、销售、营销、财务、法务、数据分析等插件",
+  "plugins": [
+    {
+      "name": "productivity",
+      "version": "1.0.0",
+      "description": "生产力工具 - 任务管理、日程安排、会议准备",
+      "path": "productivity/1.0.0"
+    },
+    {
+      "name": "sales",
+      "version": "1.0.0",
+      "description": "销售工具 - 客户研究、销售预测、电话准备",
+      "path": "sales/1.0.0"
+    },
+    {
+      "name": "marketing",
+      "version": "1.0.0",
+      "description": "营销工具 - 内容创作、SEO审计、品牌审查、营销活动策划",
+      "path": "marketing/1.0.0"
+    },
+    {
+      "name": "finance",
+      "version": "1.0.0",
+      "description": "财务工具 - 日记账、收入报表、差异分析、对账",
+      "path": "finance/1.0.0"
+    },
+    {
+      "name": "legal",
+      "version": "1.0.0",
+      "description": "法务工具 - 合同审查、NDA分类、法律风险评估",
+      "path": "legal/1.0.0"
+    },
+    {
+      "name": "data",
+      "version": "1.0.0",
+      "description": "数据分析工具 - 数据探索、可视化、仪表盘、SQL查询",
+      "path": "data/1.0.0"
+    },
+    {
+      "name": "customer-support",
+      "version": "1.0.0",
+      "description": "客户支持工具 - 工单分类、升级处理、知识库文章",
+      "path": "customer-support/1.0.0"
+    },
+    {
+      "name": "enterprise-search",
+      "version": "1.0.0",
+      "description": "企业搜索 - 跨工具统一搜索",
+      "path": "enterprise-search/1.0.0"
+    },
+    {
+      "name": "product-management",
+      "version": "1.0.0",
+      "description": "产品管理工具 - 指标追踪、路线图更新、规格编写、用户研究",
+      "path": "product-management/1.0.0"
+    },
+    {
+      "name": "bio-research",
+      "version": "1.0.0",
+      "description": "生物研究工具 - 临床试验、单细胞RNA分析、Nextflow开发",
+      "path": "bio-research/1.0.0"
+    },
+    {
+      "name": "cowork-plugin-management",
+      "version": "0.1.0",
+      "description": "插件管理工具 - 创建和自定义插件",
+      "path": "cowork-plugin-management/0.1.0"
+    }
+  ]
+}
