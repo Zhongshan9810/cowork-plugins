@@ -96,11 +96,11 @@
       "category": "development"
     },
     {
-      "name": "打工人",
+      "name": "dagong",
       "version": "1.0.0",
-      "description": "办公文档处理技能包 - Word、Excel、PDF、PPT 创建与编辑，内部沟通文档撰写",
+      "description": "打工人办公文档处理技能包 - Word、Excel、PDF、PPT 创建与编辑，内部沟通文档撰写",
       "author": { "name": "Zhongshan9810" },
-      "source": "./打工人/1.0.0",
+      "source": "./dagong/1.0.0",
       "category": "productivity"
     }
   ]
