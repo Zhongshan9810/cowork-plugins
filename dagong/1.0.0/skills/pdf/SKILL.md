@@ -230,23 +230,42 @@ pdftk input.pdf rotate 1east output rotated.pdf
 
 ## Common Tasks
 
-### Extract Text from Scanned PDFs
+### Extract Text from Scanned PDFs (OCR)
+
+Many Chinese legal/business PDFs are scanned images with no extractable text. **Always try normal text extraction first**; if it returns empty or garbled text, fall back to OCR.
+
+**Detection:** If `pdfplumber` or `pypdf` returns empty/near-empty text, the PDF is likely scanned.
+
+**Preferred method — fitz (PyMuPDF) + pytesseract:**
 ```python
-# Requires: pip install pytesseract pdf2image
+import fitz, pytesseract
+from PIL import Image
+import io
+
+doc = fitz.open("scanned.pdf")
+for i, page in enumerate(doc):
+    pix = page.get_pixmap(dpi=300)
+    img = Image.open(io.BytesIO(pix.tobytes("png")))
+    text = pytesseract.image_to_string(img, lang='chi_sim+eng')
+    print(f"=== Page {i+1} ===")
+    print(text)
+```
+
+**Key options:**
+- `lang='chi_sim+eng'` — Chinese simplified + English (use `chi_tra+eng` for traditional)
+- `dpi=300` — higher DPI improves OCR accuracy for small text
+
+> **Note:** Direct `tesseract ... stdout` via subprocess may return empty output on some systems (e.g., tesseract 5.5.x on macOS). The pytesseract library is more reliable.
+
+**Alternative — pytesseract + pdf2image:**
+```python
 import pytesseract
 from pdf2image import convert_from_path
 
-# Convert PDF to images
 images = convert_from_path('scanned.pdf')
-
-# OCR each page
-text = ""
 for i, image in enumerate(images):
-    text += f"Page {i+1}:\n"
-    text += pytesseract.image_to_string(image)
-    text += "\n\n"
-
-print(text)
+    text = pytesseract.image_to_string(image, lang='chi_sim+eng')
+    print(f"Page {i+1}:\n{text}\n")
 ```
 
 ### Add Watermark

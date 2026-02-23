@@ -10,12 +10,17 @@ license: Proprietary. LICENSE.txt has complete terms
 
 A .docx file is a ZIP archive containing XML files.
 
+## Template-First Rule
+
+**When the user provides a template (.docx), always follow the template's formatting as closely as possible.** This includes fonts, font sizes, line spacing, indentation, paragraph spacing, heading styles, page margins, and writing conventions. Minimize deviations from the template — only adjust what is strictly necessary for the new content. Unpack the template first to inspect its styles and formatting before generating the document.
+
 ## Quick Reference
 
 | Task | Approach |
 |------|----------|
 | Read/analyze content | `pandoc` or unpack for raw XML |
 | Create new document | Use `docx-js` - see Creating New Documents below |
+| Create from template | Unpack template → inspect styles → replicate formatting exactly |
 | Edit existing document | Unpack → edit XML → repack - see Editing Existing Documents below |
 
 ### Converting .doc to .docx
@@ -283,6 +288,7 @@ sections: [{
 - **TOC requires HeadingLevel only** - no custom styles on heading paragraphs
 - **Override built-in styles** - use exact IDs: "Heading1", "Heading2", etc.
 - **Include `outlineLevel`** - required for TOC (0 for H1, 1 for H2, etc.)
+- **Chinese quotation marks in Python** - `"` `"` (`\u201c` `\u201d`) conflict with Python double-quote string delimiters. When generating python-docx code with Chinese quotes, use single-quoted strings or unicode escapes: `'\u201c贵行\u201d'`
 
 ---
 
